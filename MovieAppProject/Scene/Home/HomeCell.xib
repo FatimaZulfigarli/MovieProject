@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeCell" customModule="MovieAppProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="165"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="407" height="165"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPR-K4-KgH">
+                        <rect key="frame" x="32" y="0.0" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9d-Ij-vUx">
+                        <rect key="frame" x="357" y="0.0" width="38" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JLK-ha-DnL">
+                        <rect key="frame" x="0.0" y="37" width="407" height="128"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="16" id="UOS-BK-qHG">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="gTV-IL-0wX" id="BCK-k6-aEZ"/>
+                            <outlet property="delegate" destination="gTV-IL-0wX" id="Azp-tA-xfc"/>
+                        </connections>
+                    </collectionView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JLK-ha-DnL" secondAttribute="trailing" id="1sB-Xq-ICl"/>
+                <constraint firstItem="sPR-K4-KgH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2kZ-dm-fcn"/>
+                <constraint firstItem="o9d-Ij-vUx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="44L-FY-PHS"/>
+                <constraint firstItem="sPR-K4-KgH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="Gki-S9-7gX"/>
+                <constraint firstAttribute="bottom" secondItem="JLK-ha-DnL" secondAttribute="bottom" id="TNy-1b-3J1"/>
+                <constraint firstItem="JLK-ha-DnL" firstAttribute="top" secondItem="sPR-K4-KgH" secondAttribute="bottom" constant="16" id="UVO-LR-110"/>
+                <constraint firstItem="JLK-ha-DnL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="g0e-Rf-4WS"/>
+                <constraint firstAttribute="trailing" secondItem="o9d-Ij-vUx" secondAttribute="trailing" constant="12" id="j5I-dR-877"/>
+            </constraints>
+            <size key="customSize" width="407" height="165"/>
+            <connections>
+                <outlet property="categoryLabel" destination="sPR-K4-KgH" id="DDC-Nu-dZY"/>
+                <outlet property="collection" destination="JLK-ha-DnL" id="Lw2-Ah-h9T"/>
+            </connections>
+            <point key="canvasLocation" x="86" y="-4"/>
+        </collectionViewCell>
+    </objects>
+</document>
