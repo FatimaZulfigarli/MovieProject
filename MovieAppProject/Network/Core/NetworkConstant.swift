@@ -17,3 +17,4 @@ class NetworkConstants {
     
     static let baseImageUrl = "https://image.tmdb.org/t/p/original"
 }
+

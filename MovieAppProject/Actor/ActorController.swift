@@ -10,7 +10,7 @@ import UIKit
 class ActorController: UIViewController {
     @IBOutlet weak var collection: UICollectionView!
     let viewModel = ActorViewModel()
-        
+    let refrestControl = UIRefreshControl()
         override func viewDidLoad() {
             super.viewDidLoad()
             configureUI()
@@ -19,19 +19,30 @@ class ActorController: UIViewController {
         
         func configureUI() {
             title = "Actor List"
+            refrestControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
             collection.register(UINib(nibName: "MovieCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
+            collection.refreshControl = refrestControl
         }
         
         func configureViewModel() {
             viewModel.getActorList()
             viewModel.error = { errorMessage in
                 print("Error: \(errorMessage)")
+                self.refrestControl.endRefreshing()
+
             }
             viewModel.success = {
                 self.collection.reloadData()
+                self.refrestControl.endRefreshing()
             }
         }
+    @objc func pullToRefresh() {
+        viewModel.actorData = nil
+        viewModel.items.removeAll()
+        viewModel.getActorList()
+        
     }
+}
 
     extension ActorController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
