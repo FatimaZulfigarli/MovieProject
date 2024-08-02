@@ -21,7 +21,7 @@ enum ActorEndpoint {
         case .popularActors:
             return "person/popular"
         case .movieListOfActor(let id):
-            return "person/\(id)/movie"
+            return "person/\(id)/movie_credits"
             
         }
     }

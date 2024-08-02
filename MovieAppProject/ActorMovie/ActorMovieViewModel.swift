@@ -25,6 +25,14 @@ class ActorMovieViewModel {
 //        }
 //    }
     func getActorMovies(actorId: Int) {
-//        manager.getActorMovies(actorId: actorId)
+            manager.getActorMovies(actorId: actorId) { [weak self] data, errorMessage in
+                guard let self = self else { return }
+                if let errorMessage = errorMessage {
+                    self.error?(errorMessage)
+                } else if let data = data {
+                    self.items = data.cast ?? []
+                    self.success?()
+                }
+            }
+        }
     }
-}

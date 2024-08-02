@@ -1,22 +1,18 @@
-//
-//  NetworkManager.swift
-//  MovieApp
-//
-//  Created by Samxal Quliyev  on 06.12.23.
-//
-
 import Foundation
 import Alamofire
 
-class NetworkManager {    
-   
+class NetworkManager {
     static func request<T: Codable>(model: T.Type,
                                     endpoint: String,
                                     method: HTTPMethod = .get,
                                     parameters: Parameters? = nil,
                                     encoding: ParameterEncoding = URLEncoding.default,
                                     completion: @escaping((T?, String?) -> Void)) {
-        AF.request(NetworkConstants.getUrl(with: endpoint),
+        let url = NetworkConstants.getUrl(with: endpoint)
+        print("Request URL: \(url)")
+        print("Parameters: \(String(describing: parameters))")
+
+        AF.request(url,
                    method: method,
                    parameters: parameters,
                    encoding: encoding,
@@ -25,6 +21,7 @@ class NetworkManager {
             case .success(let data):
                 completion(data, nil)
             case .failure(let error):
+                print("Request failed with error: \(error.localizedDescription)")
                 completion(nil, error.localizedDescription)
             }
         }
